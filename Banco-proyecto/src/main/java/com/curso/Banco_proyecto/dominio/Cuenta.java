@@ -6,10 +6,10 @@ public class Cuenta  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	//variables
-	private double balance;
+	protected double balance;
 
 	//constructor
-	public Cuenta(double balance) {
+	protected Cuenta(double balance) {
 		super();
 		this.balance = balance;
 	}
@@ -36,6 +36,7 @@ public class Cuenta  implements Serializable{
 		return resultado;
 		
 	}
+	
 	
 	public boolean retirar(double cantidad) {
 		
