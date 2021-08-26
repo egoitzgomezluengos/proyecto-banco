@@ -21,36 +21,22 @@ public class Cuenta  implements Serializable{
 	
 	//otros metodos
 	
-	public boolean ingresar(double cantidad) {
+	public void ingresar(double cantidad) {
 		
-		boolean resultado = false;
-		
-		if(cantidad <= 0 ) {
-			//throw exception
-			System.out.println("no puede ingresar una cantidad negativa o 0");
-		}else {
 			this.balance += cantidad;
-			resultado = true;
-		}
-		
-		return resultado;
-		
+
 	}
 	
 	
-	public boolean retirar(double cantidad) {
-		
-		boolean resultado = false;
+	public void retirar(double cantidad) throws OverdraftException {
 		
 		if( (cantidad > this.balance) || (cantidad == 0) ) {
-			//throw exception
-			System.out.println("no puede retirar una cantidad superior a lo que tiene en la cuenta o 0");
+			throw new OverdraftException("fondos insuficientes", cantidad-this.balance);
 		}else {
 			this.balance = this.balance - cantidad;
-			resultado = true;
+
 		}
-		
-		return resultado;
+
 	}
 	
 }

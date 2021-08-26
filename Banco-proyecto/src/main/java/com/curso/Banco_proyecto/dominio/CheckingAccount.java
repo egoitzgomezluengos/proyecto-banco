@@ -18,15 +18,16 @@ public class CheckingAccount extends Cuenta{
 		this.overdraftAmount = overdraftAmount;
 	}
 	
+	
 	//otros metodos
 	@Override
-	public boolean retirar(double amount) {
-		 boolean resultado = true;
+	public void retirar(double amount) throws OverdraftException {
+
 		 
 		 if (balance < amount) {
 			 double overdraftNeeded = amount - balance;
 			 if(overdraftAmount < overdraftNeeded) {
-				 resultado = false;
+				 throw new OverdraftException("fondos insuficientes", amount-this.balance);
 			 }else {
 				 balance = 0.0;
 				 overdraftAmount = overdraftAmount - overdraftNeeded;
@@ -35,9 +36,6 @@ public class CheckingAccount extends Cuenta{
 			 balance = balance - amount;
 		 }
 		 
-		 return resultado;
 	}
-	
-	
 
 }
