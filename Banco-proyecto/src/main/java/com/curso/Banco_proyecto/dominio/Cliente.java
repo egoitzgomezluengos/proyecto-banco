@@ -1,6 +1,7 @@
 package com.curso.Banco_proyecto.dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Cliente implements Serializable{
 
@@ -8,19 +9,20 @@ public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	//variables
+	private String dni;
 	private String nombre;
 	private String apellido;
 	private Cuenta cuenta;
-	private Cuenta[] cuentas;
-	private int numeroCuentas;
+	private ArrayList<Cuenta> cuentas ;
 	
 	//constructor
-	public Cliente(String nombre, String apellido) {
+	public Cliente(String dni, String nombre, String apellido) {
 		super();
+		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		cuentas = new Cuenta[5];
-		numeroCuentas = 0;
+		cuentas = new ArrayList<Cuenta>();
+		
 	}
 
 	//metodos getter y setter
@@ -35,6 +37,10 @@ public class Cliente implements Serializable{
 	public String getApellido() {
 		return apellido;
 	}
+	
+	public String getDni() {
+		return dni;
+	}
 
 
 	//otros metodos
@@ -45,19 +51,19 @@ public class Cliente implements Serializable{
 	}
 	
 	public void aniadirCuenta(Cuenta cuenta) {
-		int i = numeroCuentas;
-		cuentas[i] = cuenta;
-		numeroCuentas++;
+
+		cuentas.add(cuenta);
+		
 	}
 	
 	public int getNumCuentas() {
-		return numeroCuentas;
+		return cuentas.size(); 
 	}
 
 	
 	public Cuenta getAccount(int index) {
 		
-		return cuentas[index];
+		return cuentas.get(index);
 		
 	}
 	
