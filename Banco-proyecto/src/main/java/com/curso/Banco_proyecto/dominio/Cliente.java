@@ -1,6 +1,7 @@
 package com.curso.Banco_proyecto.dominio;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Cliente implements Serializable{
@@ -9,18 +10,27 @@ public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	//variables
-	private String dni;
 	private String nombre;
 	private String apellido;
 	private Cuenta cuenta;
 	private ArrayList<Cuenta> cuentas ;
+	private LocalDate fechaAlta;
 	
 	//constructor
-	public Cliente(String dni, String nombre, String apellido) {
+	public Cliente(String nombre, String apellido) {
 		super();
-		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.fechaAlta = LocalDate.now();
+		cuentas = new ArrayList<Cuenta>();
+		
+	}
+	
+	public Cliente(String nombre, String apellido, LocalDate fechaAlta) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fechaAlta = fechaAlta;
 		cuentas = new ArrayList<Cuenta>();
 		
 	}
@@ -38,8 +48,8 @@ public class Cliente implements Serializable{
 		return apellido;
 	}
 	
-	public String getDni() {
-		return dni;
+	public LocalDate getFechaAlta() {
+		return fechaAlta;
 	}
 
 

@@ -1,5 +1,7 @@
 package com.curso.Banco_proyecto;
 
+import java.time.LocalDate;
+
 import com.curso.Banco_proyecto.dominio.Banco;
 import com.curso.Banco_proyecto.dominio.CheckingAccount;
 import com.curso.Banco_proyecto.dominio.Cliente;
@@ -12,8 +14,8 @@ public class Application
 	public static void main( String[] args )
 	{
 		
-		Banco.aniadirCliente("16092745J","Egoitz", "Gomez");
-		Banco.aniadirCliente("16092744N","Owen", "Bryant");
+		Banco.aniadirCliente("16092745J","Egoitz", "Gomez", LocalDate.now());
+		Banco.aniadirCliente("16092744N","Owen", "Bryant", LocalDate.now());
 //		Banco.aniadirCliente("Tim", "Soley");
 //		Banco.aniadirCliente("Maria", "Soley");
 		

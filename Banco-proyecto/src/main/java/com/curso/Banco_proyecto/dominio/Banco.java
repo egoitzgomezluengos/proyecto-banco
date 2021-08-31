@@ -1,6 +1,7 @@
 package com.curso.Banco_proyecto.dominio;
 
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -18,9 +19,9 @@ public class Banco {
 		
 	}
 	
-	public static void aniadirCliente(String dni, String nombre, String apellido) {
+	public static void aniadirCliente(String dni, String nombre, String apellido, LocalDate fecha) {
 
-		clientes.put(dni, new Cliente(dni, nombre, apellido));
+		clientes.put(dni, new Cliente(nombre, apellido, fecha));
 
 	}
 	
