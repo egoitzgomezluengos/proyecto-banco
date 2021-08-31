@@ -66,19 +66,20 @@ public class CargaDatosBanco {
 				Cliente cliente = Banco.getCustomer(dni);
 				
 				 String tipoCuenta =  sc.next();
+				 double saldo = sc.nextDouble();
+				 double dato = sc.nextDouble();
+				 switch(tipoCuenta) {
 				 
-				 if (tipoCuenta.equalsIgnoreCase("S")) {
-					 double saldo = sc.nextDouble();
-					 double interes = sc.nextDouble();
+				 case "S":
 					 
-					 SavingsAccount save = new SavingsAccount(saldo, interes);
+					 SavingsAccount save = new SavingsAccount(saldo, dato);
 					 cliente.aniadirCuenta(save);
-				 }else {
-					 double saldo = sc.nextDouble();
-					 double limite = sc.nextDouble();
+					 break;
+				 case "C":
 					 
-					 CheckingAccount check =new CheckingAccount(saldo, limite);
+					 CheckingAccount check =new CheckingAccount(saldo, dato);
 					 cliente.aniadirCuenta(check);
+					 break;
 				 }
 				 
 				 linea= br.readLine();
