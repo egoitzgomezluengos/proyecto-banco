@@ -48,9 +48,10 @@ public class CargaDatosBanco {
 			 linea = br.readLine();
 			
 			 while (linea != null) {
-				 Scanner sc = new Scanner(linea);
-				 Locale castellano = new Locale("en","US");
 				 
+				 Scanner sc = new Scanner(linea);
+				 
+				 Locale castellano = new Locale("en","US");
 				 sc.useLocale(castellano);
 				 sc.useDelimiter("#");
 				 
@@ -68,6 +69,7 @@ public class CargaDatosBanco {
 				 String tipoCuenta =  sc.next();
 				 double saldo = sc.nextDouble();
 				 double dato = sc.nextDouble();
+				 
 				 switch(tipoCuenta) {
 				 
 				 case "S":
@@ -83,7 +85,7 @@ public class CargaDatosBanco {
 				 }
 				 
 				 linea= br.readLine();
-				 
+				
 			 }
 			
 		} catch (FileNotFoundException e) {
@@ -97,6 +99,7 @@ public class CargaDatosBanco {
 				try {
 					if(br != null) br.close();
 					if(fr != null) fr.close();
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
